@@ -1,0 +1,17 @@
+<%@ tag  body-content="empty" language="java" pageEncoding="UTF-8"  %>
+
+<%@ attribute name="color" required="true"  type="java.lang.Integer"%>
+<%@ attribute name="name" required="true"  type="java.lang.Integer"%>
+<%@ attribute name= "rows" required="true" type="java.lang.Integer"%>
+<% 
+String c = "white";
+if(color == 1) c = "#B7CBFB";
+if(color  == 2) c = "#BDBDBD";
+if(color == 3) c = "#FAE197";
+
+String[] titleNames = {"웹프로그래밍", "운영체제" , "소프트웨어프로그래밍", "데이터베이스개론", "자료구조", "네트워크", "창의와감성","사회봉사"};
+String n = "&nbsp";
+if(name > -1) n = titleNames[name];
+%>
+
+<td style = "background-color:<%=c %>"  rowspan="${rows}"><% out.println(n +" ");%></td>

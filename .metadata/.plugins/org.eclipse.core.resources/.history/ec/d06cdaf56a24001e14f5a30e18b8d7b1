@@ -1,0 +1,45 @@
+<%@ tag language="java" pageEncoding="UTF-8"%>
+
+<%@ attribute name="brd" %>
+<%@ attribute name="color" %>
+<jsp:useBean id="login" class="jspbook.pr38.LoginBean" scope="session" />
+<jsp:setProperty name="login"  property="*" />
+
+<h2><jsp:doBody/></h2>
+<table border="${brd }" style="background-color: ${color}">
+<tr>
+<td width="100px">이름:</td>
+<td width="200px"><jsp:getProperty name="login" property="id"/></td>
+</tr>
+<tr>
+<td width="100px">패스워드:</td>
+<% String pw=request.getParameter("pw"); %>
+<td width="200px"><%out.println(pw); %></td>
+</tr>
+<tr>
+<td width="100px">이메일:</td>
+<td width="200px">${login.email }</td>
+</tr>
+<tr>
+<td width="100px">성별:</td>
+<td width="200px">${login.gender}</td>
+</tr>
+<tr>
+<td width="100px">생일:</td>
+<td width="200px"><%=login.getBirth() %></td>
+</tr>
+<%
+int gen=login.getGender();
+String stringGen;
+if(gen == 0)
+	stringGen="남성";
+else
+	stringGen="여성";
+
+ out.println("<tr><td colspan=\"2\">" +login.getId()+"씨는"+stringGen+"이고, ");
+ if(login.isGrownUp()==true)
+	 out.println("성인입니다.");
+ else
+	 out.println("성인이 아닙니다.");
+%>
+</table>

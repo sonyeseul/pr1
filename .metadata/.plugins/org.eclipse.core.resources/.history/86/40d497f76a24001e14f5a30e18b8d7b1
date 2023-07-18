@@ -1,0 +1,17 @@
+<%@ tag language = "java" pageEncoding="UTF-8" %>
+<%@ tag body-content="scriptless" %>
+
+<%
+out.println("<h1 align='center'>구구단 출력</h2><hr>");
+out.println("<table align='center' style='text_align:center;  border: 1px solid black;  width: 40%; height:500px;'>");
+for(int i = 0; i < 2; i++){
+	out.println("<tr style = 'border: 1px solid black'>");
+	for(int j = 0;  j< 4; j++){
+		out.println("<td style = 'border:1px solid black'>");
+		for(int r = 1; r <= 9; r++)
+			out.println(((j+2 )+ (i*4)) +"*"+r+"="+(i+2)*r+"<br>");
+		out.println("</td>");
+	}
+	out.println("</tr>");
+}
+%>
